@@ -1,21 +1,21 @@
 apiVersion: apps/v1
-kind: 
+kind: ReplicaSet
 metadata:
-  name: 
+  name: nginx-replica
 spec:
-  replicas: 
+  replicas: 2
   selector:
     matchLabels:
-      app_name: 
-      env: 
+      app_name: nginx
+      env: dev
   template:
     metadata:
       labels:
-        app_name: 
-        env: 
+        app_name: nginx
+        env: dev
     spec:
       containers:
-      - name: 
-        image: 
+      - name: nginx
+        image: nginx:stable-alpine
         ports:
-        - containerPort:
+        - containerPort: 80

@@ -10,12 +10,12 @@ spec:
       app_name: sts-nginx
   serviceName: nginx-sts
   updateStrategy:
-    type: OnDelete
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app_name: sts-nginx
-        app.kubernetes.io/version: "1.0"
+        app.kubernetes.io/version: "3.0"
     spec:
       containers:
       - name: nginx

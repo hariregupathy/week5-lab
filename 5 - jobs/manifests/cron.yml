@@ -1,11 +1,11 @@
-apiVersion: batch/v1beta1
-kind: 
+apiVersion: batch/v1
+kind: CronJob
 metadata:
   name: cron-app
 spec:
-  schedule: 
-  successfulJobsHistoryLimit: 
-  failedJobsHistoryLimit: 
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
       completions: 8

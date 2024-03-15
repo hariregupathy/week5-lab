@@ -1,9 +1,9 @@
 apiVersion: apps/v1
-kind: 
+kind: DaemonSet
 metadata:
-  name: 
+  name: nginx-ds
 spec:
-  revisionHistoryLimit: 
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app_name: nginx
@@ -15,7 +15,7 @@ spec:
         env: dev
     spec:
       nodeSelector: 
-        nodeType: 
+        nodeType: health
       containers:
       - name: nginx
         image: nginx:stable-alpine
